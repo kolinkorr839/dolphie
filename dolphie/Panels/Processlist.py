@@ -16,8 +16,9 @@ def create_panel(tab: Tab) -> DataTable:
         {"name": "Thread ID", "field": "id", "width": None, "format_number": False},
     ]
 
-    if dolphie.use_performance_schema_for_processlist:
-        columns.extend([{"name": "Protocol", "field": "protocol", "width": 8, "format_number": False}])
+    if dolphie.show_additional_query_columns:
+        if dolphie.use_performance_schema_for_processlist:
+            columns.extend([{"name": "Protocol", "field": "protocol", "width": 8, "format_number": False}])
 
     columns.extend(
         [
